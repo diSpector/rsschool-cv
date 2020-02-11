@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Resume</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="left-side">
+            <h1>Dmitry Semenov</h1>
+            <div class="contacts">
+                <div class="email">
+                    <a href="mailto:dmitry_proekt@mail.ru">dmitry_proekt@mail.ru</a>
+                </div>
+                <div class="phone">+7 926 320 37 83</div>
+            </div>
+        </div>
+        <div class="right-side">
+            <img src = "pic.png" alt = "Avatar">
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="section-name">
+                <h4>Summary</h4>
+            </div>
+            <div class="section-description">
+                <p>
+                    Dream of working as a programmer since <strong>school time</strong>,
+                    but after graduation enter the MEPHI institute for the specialty of
+                    electronics development.
+                </p>
+                <p>
+                    After graduation from institute <strong>start a business</strong>
+                    (online store) and sell playing cards, magic tricks and poker sets
+                    all over the Russian Federation for 10 years.
+                    During this, working on the store website and fall in love with web development.
+                </p>
+                <p>
+                    In the 2018th start to study <strong>Web Developer</strong> profession
+                    from <a href="http://geekbrains.ru">http://geekbrains.ru</a> courses,
+                    and in the 2019th, after graduated from courses, <strong>in a one week</strong>
+                    find my first job in IT as <i>PHP Developer</i> in marketing agency located in
+                    Moscow. At the moment working here for <i>7 months</i> developing sites and CRMs
+                    on Yii2 framework for <strong>Procter & Gamble</strong>, <strong>Volkswagen</strong>
+                    and <strong>BMW</strong> brands.
+                </p>
+                <p>
+                    Really like backend, but at work also often have to deal with
+                    different frontend techs – CSS, JS etc. Very interested in upgrade my
+                    skills in frontend, studying modern frontend technologies (like SPA
+                    with ReactJS). Dream of becoming a <i>fullstack developer</i>.
+                </p>
+            </div>
+        </section>
+        <section>
+            <div class="section-name">
+                <h4>Skills</h4>
+            </div>
+            <div class="section-description">
+                <div class="skill">
+                    <span class = "skill-name">Languages/frameworks</span>: PHP7.2, Yii2, Codeception, Laravel 5, JavaScript (ES6), jQuery
+                </div>
+                <div class="skill">
+                    <span class = "skill-name">DBs</span>: MySQL, PostgreSQL
+                </div>
+                <div class="skill">
+                    <span class = "skill-name">APIs</span>: Facebook Graph, Vkontakte, Russian Post, Janrain, StrikeIron, Google Measurement Protocol, SMS-Prosto API
+                </div>
+                <div class="skill">
+                    <span class = "skill-name">Utils</span>: Sentry, PHPStorm, WebStorm, VSCode, OpenServer, Ampps
+                </div>
+                <div class="skill">
+                    <span class = "skill-name">Some techs</span>: AJAX, JSON, Http, Vagrant, Composer
+                </div>
+                <div class="skill">
+                    <span class = "skill-name">Version control</span>: Git, Gitlab CI/CD
+                </div>
+                <div class="skill">
+                    <span class = "skill-name">Development methodologies:</span>: SOLID, SCRUM
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-name">
+                <h4>Code Example</h4>
+            </div>
+            <div class="section-description">
+                <pre>
+                    <code>
+class EmailBlackListsValidator extends Validator
+{
+    public function validateAttribute($model, $attribute)
+    {
+        if(strpos($model->$attribute, '+') !== false){
+            $this->addError($model, $attribute, 
+            'В E-mail не допускается использование символа «+».');
+        }
+    
+        $emailDomain =  explode('@', $model->$attribute)[1];
+
+        if(
+            BlackListDomains::find()->where(['domain' => strtolower($emailDomain)])->exists()
+            || BlackListEmails::find()->where(['email' => strtolower($model->$attribute)])->exists()
+        )
+            {
+            $this->addError($model, $attribute, 'Пожалуйста, укажите другой адрес.');
+        }
+    }
+}
+                    </code>
+                </pre>
+            </div>
+        </section>
+        <section>
+            <div class="section-name">
+                <h4>Experience</h4>
+            </div>
+            <div class="section-description">
+                <ul>
+                    <li>integrate my online store’s CMS (PHPShop) with sms service (SMS-Prosto) to send sms messages on order status’ changing,</li>
+                    <li>integrate my online store’s CMS with Russian Post service to daily update customers orders’ tracking information,</li>
+                    <li>integrate company’s internal CRM with Facebook Graph API to receive leads from Facebook,</li>
+                    <li>integrate company’s internal CRM with Vkontakte API to receive leads from Vkontakte,</li>
+                    <li>developing more than 20 modules (sites on global platform) for Procter & Gamble’s promo actions.</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <div class="section-name">
+                <h4>Education</h4>
+            </div>
+            <div class="section-description">
+                <ul>
+                    <li>2003-2009 – National Research Nuclear University MEPHI (Electronics Department),</li>
+                    <li>2018-2019 – Web Developer profession course (<a href = "www.geekbrains.ru">GeekBrains.ru</a>)</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <div class="section-name">
+                <h4>English</h4>
+            </div>
+            <div class="section-description">
+                Read technical documentation and articles fluently, watch movies and serials with English subtitles, but still have problems with speak English.
+            </div>
+        </section>
+    </main>
+    <footer>
+        2020, for RSSchool
+    </footer>
+</body>
+
+</html>
