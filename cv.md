@@ -55,3 +55,12 @@ class EmailBlackListsValidator extends Validator
 * integrate company’s internal CRM with Facebook Graph API to receive leads from Facebook,
 * integrate company’s internal CRM with Vkontakte API to receive leads from Vkontakte,
 * developing more than 20 modules (sites on global platform) for Procter & Gamble’s promo actions.
+
+**Education**:
+
+* 2003-2009 – National Research Nuclear University MEPHI (Electronics Department),
+* 2018-2019 – Web Developer profession course (GeekBrains.ru)
+
+**English**:
+
+Read technical documentation and articles fluently, watch movies and serials with English subtitles, but still have problems with speak English.
