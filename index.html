@@ -103,6 +103,38 @@
             </div>
         </section>
 
+        <section>
+            <div class="section-name">
+                Code Example
+            </div>
+            <div class="section-description">
+                <pre>
+                    <code>
+class EmailBlackListsValidator extends Validator
+{
+    public function validateAttribute($model, $attribute)
+    {
+        if(strpos($model->$attribute, '+') !== false){
+            $this->addError($model, $attribute, 
+            'В E-mail не допускается использование символа «+».');
+        }
+    
+        $emailDomain =  explode('@', $model->$attribute)[1];
+
+        if(
+            BlackListDomains::find()->where(['domain' => strtolower($emailDomain)])->exists()
+            || BlackListEmails::find()->where(['email' => strtolower($model->$attribute)])->exists()
+        )
+            {
+            $this->addError($model, $attribute, 'Пожалуйста, укажите другой адрес.');
+        }
+    }
+}
+                    </code>
+                </pre>
+            </div>
+        </section>
+
     </main>
     <footer>
         2020, for RSSchool

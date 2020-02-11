@@ -32,3 +32,7 @@ h1{
 .skill-name{
     font-style: italic;
 }
+
+code{
+    font-size: 0.8em;
+}
