@@ -47,3 +47,11 @@ class EmailBlackListsValidator extends Validator
     }
 }
 ```
+
+**Experience**:
+
+* integrate my online store’s CMS (PHPShop) with sms service (SMS-Prosto) to send sms messages on order status’ changing,
+* integrate my online store’s CMS with Russian Post service to daily update customers orders’ tracking information,
+* integrate company’s internal CRM with Facebook Graph API to receive leads from Facebook,
+* integrate company’s internal CRM with Vkontakte API to receive leads from Vkontakte,
+* developing more than 20 modules (sites on global platform) for Procter & Gamble’s promo actions.
