@@ -1,1 +1,1 @@
-# rsschool-cv
+https://dispector.github.io/rsschool-cv/cv
