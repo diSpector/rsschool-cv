@@ -21,3 +21,29 @@ Really like backend, but at work also often have to deal with different frontend
 *Some techs*: AJAX, JSON, Http, Vagrant, Composer
 *Version control*: Git, Gitlab CI/CD
 *Development methodologies*: SOLID, SCRUM
+
+**Code Example** (email validator, php):
+
+```php
+class EmailBlackListsValidator extends Validator
+{
+    public function validateAttribute($model, $attribute)
+    {
+        if(strpos($model->$attribute, '+') !== false){
+            $this->addError($model, $attribute, 'В E-mail не допускается использование символа «+». Пожалуйста, исправьте?');
+        }
+    
+        $emailDomain =  explode('@', $model->$attribute)[1];
+
+        // по новому ТЗ от 03-12-2019 - Если (хотя бы один [элемент] справочника «Blacklist домен (часть)» содержится в [E-mail] как [E-mail] LIKE ‘%@%[элемент]’
+        if(
+            BlackListDomains::find()->where(['domain' => strtolower($emailDomain)])->exists()
+            || BlackListDomainsPart::find()->where(new \yii\db\Expression(":email LIKE CONCAT('%@%', part)", ['email' => $model->$attribute,]))->exists()
+            || BlackListEmails::find()->where(['email' => strtolower($model->$attribute)])->exists()
+        )
+            {
+            $this->addError($model, $attribute, 'К сожалению, мы не можем зарегистрировать данный e-mail. Пожалуйста, укажите другой адрес.');
+        }
+    }
+}
+```
